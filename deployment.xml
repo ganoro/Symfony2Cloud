@@ -7,4 +7,12 @@
     <appdir>data</appdir>
     <docroot>data/web</docroot>
     <scriptsdir>scripts</scriptsdir>
+    <parameters>
+    <parameter display="Container" id="container" readonly="false" required="true" type="string">
+      <description>Zend Developer Cloud conatiner name that this applications is deployed to</description>
+    </parameter>
+    <parameter display="Password" id="password" readonly="false" required="true" type="password">
+      <description>Zend Developer Cloud conatiner's password </description>
+    </parameter>
+  </parameters>
 </package>

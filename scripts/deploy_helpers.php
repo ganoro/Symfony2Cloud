@@ -8,16 +8,31 @@ set_include_path ( get_include_path () . PATH_SEPARATOR . dirname ( __FILE__ ) )
 /**
  * @return string the container name
  */
-function getContainerName() {
-	$host = getenv ( "ZS_BASE_URL" );
-	return strtok ( $host, '.' );
+function getContainer() {
+	return getParameterValue ( 'CONTAINER' );
+}
+
+/**
+ * @return string the password
+ */
+function getPassword() {
+	return getParameterValue ( 'PASSWORD' );
 }
 
 /**
  * @return string the application location 
  */
 function getApplicationLocation() {
-	return getenv ( "ZS_APPLICATION_BASE_DIR" );
+	return getParameterValue ( 'APPLICATION_BASE_DIR' );
+}
+
+/**
+ * Returns the value of the application deployment parameter
+ * @param string $name
+ * @return string
+ */
+function getParameterValue($name) {
+	return getenv('ZS_' . $name);
 }
 
 /**
