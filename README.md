@@ -39,7 +39,7 @@ If you prefer the traditional Git CLI:
 
 ### For [Zend SDK](http://code.google.com/p/zend-sdk/)
 
-zend deploy application -t <target-id>
+	zend deploy application -t <target-id>
 
 where target-id is the id of your Zend Developer Cloud container created eariler 
 by the ['add target'](http://code.google.com/p/zend-sdk/wiki/ManagingTargets#Adding_a_Target) command. 
