@@ -1,9 +1,11 @@
 Symfony2Cloud 
 =============
 
-Symfony2Cloud is a project aiming to epoliting the power of 
+Symfony2Cloud is a project aiming to exploiting the power of 
 [Symfony2](http://symfony.com/doc/current/book/installation.html) and 
-the [Zend Developer Cloud](http://my.phpcloud.com)  
+the [Zend Developer Cloud](http://my.phpcloud.com).
+
+The user should be able to start a   
 
 Symfony Standard Edition - a fully-functional Symfony2 application that you 
 can use as the skeleton for your new app. If you want to learn more about 
