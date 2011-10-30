@@ -44,7 +44,15 @@ If you prefer the traditional Git CLI:
 
 ### For [Zend SDK](http://code.google.com/p/zend-sdk/)
 
-	zend deploy application -t <target-id>
+Store in /path/to/properties/file your container name and password in the following format:
+
+	container=<your-container-name>
+	password=<password>
+
+And then to deploy the application, type:
+
+	zend deploy application -t <target-id> -m </path/to/properties/file>
+	
 
 where target-id is the id of your Zend Developer Cloud container created eariler 
 by the ['add target'](http://code.google.com/p/zend-sdk/wiki/ManagingTargets#Adding_a_Target) command. 
@@ -52,6 +60,7 @@ by the ['add target'](http://code.google.com/p/zend-sdk/wiki/ManagingTargets#Add
 ### For [Zend Studio 9](http://zend.com/studio)
 
 Open the deployment.xml file and click on the "Launch a PHP application".
-Follow the wizard steps to finalize the deployment step
+Follow the wizard steps to finalize the deployment step. You will be asked to supply the 
+parameters value (container and password).
 
 Enjoy!
