@@ -14,7 +14,7 @@ cloud-based environment designed to help you code more quickly and more
 efficiently. It includes a robust PHP stack, advanced debugging capabilities, 
 collaboration tools and much more. Zend Developer Cloud is only a few clicks 
 away and does not require any installation. To make it even better, 
-it’s absolutely free!
+it's absolutely free!
 
 This document contains information on how to download and start using Symfony2Cloud.
 
