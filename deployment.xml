@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<package xmlns="http://www.zend.com/server/deployment-descriptor/1.0" version="1.0">
+    <name>Symfony2Cloud</name>
+    <version>
+        <release>1.0.0</release>
+    </version>
+    <appdir>data</appdir>
+    <docroot>data/web</docroot>
+    <scriptsdir>scripts</scriptsdir>
+</package>
