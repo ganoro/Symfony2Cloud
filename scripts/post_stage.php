@@ -7,10 +7,12 @@
  */
 require_once 'deploy_helpers.php';
 
+$appLocation = getApplicationLocation ();
+
 /*
  * set parameters file
  */
-$ini_file = getApplicationLocation () . '/app/config/parameters.ini';
+$ini_file = $appLocation . '/app/config/parameters.ini';
 $ini_array = parse_ini_file ( $ini_file, true );
 
 $ini_array ['parameters']['database_host'] = str_replace ( '<container-name>', getContainer(), $ini_array ['parameters']['database_host'] );
@@ -21,14 +23,24 @@ $ini_array ['parameters']['secret'] = str_replace ( '<secret-code>', getPassword
 write_ini_file ( $ini_array, $ini_file, true );
 
 /*
+ * modify htaccess
+ */
+$htaccess_file = $appLocation . '/web/.htaccess';
+$explode = explode('/', $htaccess_file);
+$appname = $explode[sizeof($explode) -2]; 
+$content = file_get_contents($htaccess_file);
+str_replace('<application-name>', $appname, $content);
+file_put_contents($htaccess_file, $content);
+
+/*
  * chmod cache
  */
-chmod ( getApplicationLocation () . '/app/cache', 777 );
+chmod ( $appLocation . '/app/cache', 777 );
 
 /*
  * chmod log
  */
-chmod ( getApplicationLocation () . '/app/logs', 777 );
+chmod ( $appLocation . '/app/logs', 777 );
 
 
 
