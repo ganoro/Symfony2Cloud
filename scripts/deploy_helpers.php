@@ -6,17 +6,31 @@ ini_set ( "error_reporting", E_ALL );
 set_include_path ( get_include_path () . PATH_SEPARATOR . dirname ( __FILE__ ) );
 
 /**
- * @return string the container name
+ * @return string the container db host 
  */
-function getContainer() {
-	return getParameterValue ( 'CONTAINER' );
+function getDbHost() {
+	return get_cfg_var('zend_developer_cloud.db.host');
 }
 
 /**
- * @return string the password
+ * @return string the container db name
  */
-function getPassword() {
-	return getParameterValue ( 'PASSWORD' );
+function getDbName() {
+	return get_cfg_var('zend_developer_cloud.db.name');
+}
+
+/**
+ * @return string the container db user
+ */
+function getDbUser() {
+	return get_cfg_var('zend_developer_cloud.db.username');
+}
+
+/**
+ * @return string the container db password
+ */
+function getDbPassword() {
+	return get_cfg_var('zend_developer_cloud.db.password');
 }
 
 /**
