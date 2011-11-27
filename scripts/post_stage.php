@@ -33,7 +33,7 @@ str_replace('<application-name>', $appname, $content);
 file_put_contents($htaccess_file, $content);
 
 /*
- * chmod cache
+ * chmod cache and logs
  */
 chmod ( $appLocation, 0777 );
 chmod ( $appLocation . '/app/', 0777 );
