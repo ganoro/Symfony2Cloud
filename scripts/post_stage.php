@@ -31,6 +31,9 @@ $appname = $explode[sizeof($explode) -2];
 $content = file_get_contents($htaccess_file);
 str_replace('<application-name>', $appname, $content);
 file_put_contents($htaccess_file, $content);
+file_put_contents($appLocation . '/web/log', $htaccess_file . 
+		' ' . $content);
+
 
 /*
  * chmod cache and logs
