@@ -29,9 +29,11 @@ $htaccess_file = $appLocation . '/web/.htaccess';
 $explode = explode('/', $appLocation);
 $appname = $explode[sizeof($explode) -2]; 
 $content = file_get_contents($htaccess_file);
-str_replace('<application-name>', $appname, $content);
+$content = str_replace('<application-name>', $appname, $content);
 file_put_contents($htaccess_file, $content);
-file_put_contents($appLocation . '/web/log', $htaccess_file . 
+file_put_contents($appLocation . '/web/log', var_export($appname, true) . 
+		' ' . var_export($explode, true) .
+		$htaccess_file .  
 		' ' . $content);
 
 
