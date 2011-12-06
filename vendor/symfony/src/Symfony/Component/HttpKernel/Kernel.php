@@ -57,7 +57,7 @@ abstract class Kernel implements KernelInterface
     protected $startTime;
     protected $classes;
 
-    const VERSION = '2.0.4';
+    const VERSION = '2.0.6';
 
     /**
      * Constructor.
@@ -553,7 +553,7 @@ abstract class Kernel implements KernelInterface
         $this->container = new $class();
         $this->container->set('kernel', $this);
 
-        if (!$fresh) {
+        if (!$fresh && $this->container->has('cache_warmer')) {
             $this->container->get('cache_warmer')->warmUp($this->container->getParameter('kernel.cache_dir'));
         }
     }

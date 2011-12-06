@@ -7,6 +7,69 @@ in 2.0 minor versions.
 To get the diff for a specific change, go to https://github.com/symfony/symfony/commit/XXX where XXX is the change hash
 To get the diff between two versions, go to https://github.com/symfony/symfony/compare/v2.0.0...v2.0.1
 
+* 2.0.6 (2011-11-16)
+
+ * f7c5bf1: [HttpKernel] fixed Content-Length header when using ESI tags (closes #2623)
+ * d67fbe9: [HttpFoundation] added an exception to MimeTypeGuesser::guess() when no guesser are available (closes #2636)
+ * 0462a89: [Security] fixed HttpUtils::checkRequestPath() to not catch all exceptions (closes #2637)
+ * 24dcd0f: [DoctrineBundle] added missing default parameters, needed to setup and use DBAL without ORM
+ * 462580c: [Form] Check for normal integers. refs 0427b126c15a0a27cd7033375e30371ae6a4e516
+ * bb5fb79: changed the way we store the current ob level (refs #2617)
+ * fb0fffe: [Validator] fixed a unit test for PHP 5.4 (closes #2585)
+ * 7cba0a0: Also identify FirePHP by the X-FirePHP-Version header
+ * ed1a6c2: [TwigBundle] Do not clean output buffering below initial level
+ * e83e00a: Fixed rendering of FileType (value is not a valid attribute for input[type=file])
+ * 8351a11: Added check for array fields to be integers in reverseTransform method. This prevents checkdate from getting strings as arguments and throwing incorrect ErrorException when submitting form with malformed (string) data in, for example, Date field. #2609
+ * 45b218e: [Translation] added detection for circular references when adding a fallback catalogue
+ * a245e15: [DomCrawler] trim URI in getURI
+ * 9d2ab9c: [Doctrine] fixed security user reloading when the user has been changed via a form with validation errors (closes #2033)
+ * d789f94: Serializer#normalize gives precedence to objects that support normalization
+ * 57b7daf: [Security] Fix checkRequestPath doc; closes #2323
+ * b33198f: fixed CodeHelper::formatFileFromText() method to allow &quot; as a file wrapper (it occurs for the main exception message)
+ * c31c512: [FrameworkBundle] fixed output buffering when an error occurs in a sub-request
+ * 380c67e: [FrameworkBundle] fixed HttpKernel when the app is stateless
+ * 95a1902: [Finder] bypassed some code when possible
+ * 957690c: fixing WebTastCase when kernel is not found and improving exception message
+ * dbba796: [Yaml] fixed dumper for floats when the locale separator is not a dot
+ * f9befb6: Remove only the security token instead of the session cookie.
+ * 348bccb: Clear session cookie if user was deleted, is disabled or locked to prevent infinite redirect loops to the login path (fixes #1798).
+ * 89cd64a: Set error code when number cannot be parsed. Fixes #2389
+ * c9d05d7: Let NumberFormatter handle integer type casting
+
+
+* 2.0.5 (2011-11-02)
+
+ * c5e2def: Fix ternary operator usage in RequestMatcher::checkIpv6()
+ * 43ce425: [HttpKernel] added missing accessor
+ * 80f0b98: [DependencyInjection] Fix DefinitionDecorator::getArgument() for replacements
+ * 4bd340d: [Security] Fix typo in init:acl command name
+ * 3043fa0: [HttpFoundation] fixed PHP 5.4 regression
+ * 8dcde3c: [DependencyInjection] fixed int casting for XML files (based on what is done in the YAML component)
+ * 6c2f093: [HttpFoundation] removed superfluous query call (closes #2469)
+ * 6343bef: [HttpKernel] Updated mirror method to check for symlinks before dirs and files
+ * 27d0809: [MonologBridge] Adjust for Monolog 1.0.2
+ * 808088a: added the ability to use dot and single quotes in the keys and values
+ * cbb4bba: [Routing] fixed side-effect in the PHP matcher dumper
+ * 1a43505: [FrameworkBundle] fixed priority to be consistent with 2.1
+ * 6b872cf: Check if cache_warmer service is available before doing the actual cache warmup
+ * e81c710: Increased the priority of the profiler request listener
+ * 2b0af5e: [HttpKernel] fixed profile parent/children for deep-nested requests
+ * 9d8046e: [Doctrine] GH-1635 - UniqueValidator now works with associations
+ * 3426c83: [BrowserKit] fixed cookie updates from Response (the URI here is not the base URI, so it should not be used to determine the default values missing in the cookie, closes #2309)
+ * c0f5b8a: [HttpKernel] fixed profile saving when it has children
+ * 3d7510e: [HttpKernel] fixed missing init for Profile children property
+ * 00cbd39: [BrowserKit] Fixed cookie expiry discard when attribute contains capitals
+ * edfa29b: session data needs to be encoded because it can contain non binary safe characters e.g null. Fixes #2067
+ * c00ba4d: [Console] fixed typo (closes #2358)
+ * 2270a4d: [Bridge][Doctrine] Adding a catch for when a developer uses the EntityType with multiple=false but on a "hasMany" relationship
+ * 2877883: anything in front of ;q= is part of the mime type, anything after may be ignored
+ * d2d849c: Added translations for "hy"
+ * ae0685a: [Translation] Loader should only load local files
+ * 8bd0e42: [Form] Use proper parent (text) for EmailType and TextareaType
+ * 95049ef: [Form] Added type check to `ScalarToChoiceTransformer`
+ * a74ae9d: [HttpFoundation] made X_REWRITE_URL only available on Windows platforms
+ * 828b18f: [Form] Fixed lacking attributes in DateTimeType
+
 * 2.0.4 (2011-10-04)
 
  * cf4a91e: [ClassLoader] fixed usage of trait_exists()

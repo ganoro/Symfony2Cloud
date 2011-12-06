@@ -1,9 +1,9 @@
 {
-  "name": "Monolog",
+  "name": "monolog/monolog",
   "description": "Logging for PHP 5.3",
   "keywords": ["log","logging"],
   "homepage": "http://github.com/Seldaek/monolog",
-  "version": "1.0.1",
+  "type": "library",
   "license": "MIT",
   "authors": [
     {
@@ -14,5 +14,8 @@
   ],
   "require": {
     "php": ">=5.3.0"
+  },
+  "autoload": {
+    "psr-0": {"Monolog": "src/"}
   }
 }

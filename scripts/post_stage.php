@@ -26,7 +26,7 @@ write_ini_file ( $ini_array, $ini_file, true );
  * modify htaccess
  */
 $htaccess_file = $appLocation . '/web/.htaccess';
-$explode = explode('/', $htaccess_file);
+$explode = explode('/', $appLocation);
 $appname = $explode[sizeof($explode) -2]; 
 $content = file_get_contents($htaccess_file);
 str_replace('<application-name>', $appname, $content);

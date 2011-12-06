@@ -42,6 +42,16 @@ class RouteCollection implements \IteratorAggregate
         $this->prefix = '';
     }
 
+    public function __clone()
+    {
+        foreach ($this->routes as $name => $route) {
+            $this->routes[$name] = clone $route;
+            if ($route instanceof RouteCollection) {
+                $this->routes[$name]->setParent($this);
+            }
+        }
+    }
+
     /**
      * Gets the parent RouteCollection.
      *

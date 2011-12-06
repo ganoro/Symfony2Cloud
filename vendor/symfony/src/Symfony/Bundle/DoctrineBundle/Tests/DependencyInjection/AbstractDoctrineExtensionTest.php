@@ -16,7 +16,6 @@ use Symfony\Bundle\DoctrineBundle\DependencyInjection\DoctrineExtension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
-use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass;
 use Symfony\Component\Config\FileLocator;
@@ -513,7 +512,7 @@ abstract class AbstractDoctrineExtensionTest extends TestCase
         $this->assertEquals('%doctrine.orm.cache.apc.class%', $cacheDefinition->getClass());
 
         $configDefinition = $container->getDefinition('doctrine.orm.default_configuration');
-        $this->assertDICDefinitionMethodCallOnce($configDefinition, 'setAutoGenerateProxyClasses', array(true));
+        $this->assertDICDefinitionMethodCallOnce($configDefinition, 'setAutoGenerateProxyClasses', array('%doctrine.orm.auto_generate_proxy_classes%'));
     }
 
     public function testSingleEntityManagerMultipleMappingBundleDefinitions()

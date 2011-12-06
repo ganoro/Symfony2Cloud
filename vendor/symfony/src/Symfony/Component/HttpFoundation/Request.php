@@ -1027,9 +1027,9 @@ class Request
         $values = array();
         foreach (array_filter(explode(',', $header)) as $value) {
             // Cut off any q-value that might come after a semi-colon
-            if ($pos = strpos($value, ';')) {
-                $q     = (float) trim(substr($value, strpos($value, '=') + 1));
-                $value = trim(substr($value, 0, $pos));
+            if (preg_match('/;\s*(q=.*$)/', $value, $match)) {
+                $q     = (float) substr(trim($match[1]), 2);
+                $value = trim(substr($value, 0, -strlen($match[0])));
             } else {
                 $q = 1;
             }
@@ -1057,7 +1057,7 @@ class Request
     {
         $requestUri = '';
 
-        if ($this->headers->has('X_REWRITE_URL')) {
+        if ($this->headers->has('X_REWRITE_URL') && false !== stripos(PHP_OS, 'WIN')) {
             // check this first so IIS will catch
             $requestUri = $this->headers->get('X_REWRITE_URL');
         } elseif ($this->server->get('IIS_WasUrlRewritten') == '1' && $this->server->get('UNENCODED_URL') != '') {
