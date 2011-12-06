@@ -1,5 +1,5 @@
 <IfModule mod_rewrite.c>
-	RewriteBase <application-name>
+	RewriteBase /<application-name>
 
     RewriteEngine On
     RewriteCond %{REQUEST_FILENAME} !-f
